@@ -1,0 +1,131 @@
+/* 
+  ======================================================
+  = ERROR LEVEL ========================================
+  ======================================================
+*/
+
+/*************************************************************************
+  OUTLINES / BORDERS
+*************************************************************************/
+
+.holmes-error, .holmes-debug {  
+  a[href=""],
+  a:not([href]),
+
+  img:not([alt]),
+  img[alt=""],
+
+  label[for=""],
+  label:not([for]),
+
+  input:not([name]),
+  input[name=""],
+
+  select:not([name]),
+  select[name=""],
+
+  textarea:not([name]),
+  textarea[name=""],
+
+  abbr:not([title]),
+  abbr[title=""],
+
+  [class=""],
+  [id=""],
+
+  table:not([summary]),
+  table[summary=""] {
+    outline: 2px solid red;      
+  }    
+}
+
+/*************************************************************************
+  MESSAGE BOX STYLING
+*************************************************************************/
+
+.holmes-error, .holmes-debug {  
+  a[href=""]:hover::after,
+  a:not([href]):hover::after,
+
+  img:not([alt]):hover:after,
+  img[alt=""]:hover::after,
+
+  label:not([for]):hover::after,
+  label[for=""]:hover::after,
+
+  input:not([name]):hover::after,
+  input[name=""]:hover::after,
+
+  select:not([name]):hover::after,
+  select[name=""]:hover::after,
+
+  textarea:not([name]):hover::after,
+  textarea[name=""]:hover::after,
+
+  abbr:not([title]):hover::after,
+  abbr[title=""]:hover::after,
+
+  [class=""]:hover::after,
+  [id=""]:hover::after,
+
+  table:not([summary]):hover::after,
+  table[summary=""]:hover::after {
+    @include message_box;
+    background: red;
+  }
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+.holmes-error {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
+  }
+}
+
+/*************************************************************************
+  MESSAGES CONTENT
+*************************************************************************/
+
+.holmes-error, .holmes-debug {
+  a[href=""]:hover::after,
+  a:not([href]):hover::after {
+    content:'Missing href attribute';
+  }  
+
+  img[alt=""]:hover::after,
+  img:not([alt]):hover::after {
+    content:'Missing alt attribute';
+  }  
+
+  label[for=""]:hover::after,
+  label:not([for]):hover::after {
+    content:'Missing for attribute';
+  }
+
+  input[name=""]:hover::after,
+  input:not([name]):hover::after, 
+  select[name=""]:hover::after,
+  select:not([name]):hover::after,
+  textarea[name=""]:hover::after,
+  textarea:not([name]):hover::after {
+    content:'Missing name attribute';
+  }
+
+  abbr[title=""]:hover::after,
+  abbr:not([title]):hover::after {
+    content:'Missing title attribute';
+  }
+
+  [class=""]:hover::after {
+    content:'Blank class attribute';
+  }
+  [id=""]:hover::after {
+    content:'Blank id attribute';
+  }
+
+  table[summary=""]:hover::after,
+  table:not([summary]):hover::after {
+    content:'Missing summary attribute';
+  }  
+}
