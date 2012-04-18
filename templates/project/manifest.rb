@@ -1,19 +1,17 @@
-description "A SASS version of the Holmes Markup detective"
+description "an implementation of the Holmes Markup Detective for use with compass"
 
 # Make sure you list all the project template files here in the manifest.
 stylesheet '_holmes.scss', :media => 'screen, projection'
 
 
 help %Q{
-Docs on the compass port of blueprint can be found on the wiki:
+Docs can be found on the github page:
 
-    http://wiki.github.com/chriseppstein/compass/blueprint-documentation
+    https://github.com/markdboyd/Compass-Holmes
 }
 
 welcome_message %Q{
-Docs on the compass port of blueprint can be found on the wiki:
+Docs can be found on the github page:
 
-    http://wiki.github.com/chriseppstein/compass/blueprint-documentation
-
-To get started, edit the screen.sass file and read the comments and code there.
+    https://github.com/markdboyd/Compass-Holmes	
 }
