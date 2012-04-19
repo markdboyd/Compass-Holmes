@@ -42,8 +42,33 @@
   th:empty:hover::after,
   
   [style]:hover::after {
-    @extend .holmes_message_box;
+    border-radius: 0.5em;
+    display:block;
+    padding: 1em;
+    margin: 1em;    
+    position: fixed;
+    color: #000;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Arial', sans-serif;  
+    text-transform: none;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;  
+    text-decoration: none;
+    border: none;
     background: #fd0;
+  }
+}
+
+/*
+  Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere
+*/
+
+.holmes-debug {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
   }
 }
 

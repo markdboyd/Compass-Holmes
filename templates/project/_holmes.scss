@@ -1,11 +1,8 @@
-// Pulls in message box styling
-@import compass-holmes/messages
-
 // Highlights invalid markup 
 @import compass-holmes/error
 
 // Highlights deprecated markup
 @import compass-holmes/deprecated
 
-// Highlights warning level markup
+// Highlights non-standards compliant markup
 @import compass-holmes/warn

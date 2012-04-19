@@ -13,4 +13,11 @@ welcome_message %Q{
 Docs can be found on the github page:
 
     https://github.com/markdboyd/Compass-Holmes	
+
+To get started, simply:
+
+		Include the styles from Compass Holmes that you want
+		Add a body class of "holmes-debug" 
+
+Enjoy! If you have any problems or suggestions, feel to report them to the github issue queue.
 }
