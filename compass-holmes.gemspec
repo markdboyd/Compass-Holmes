@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1"
+  s.version = "0.1.1"
   s.date = "2011-04-18"
 
   # Gem Details
@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.summary = %q{An implementation of the Holmes Markup Detective for use with Compass}
   s.description = %q{An implementation of the Holmes Markup Detective for use with Compass}
   s.email = "markdavidboyd@gmail.com"
+  s.homepage = "https://github.com/markdboyd/Compass-Holmes"
 
   # Gem Files
   s.files += Dir.glob("lib/**/*.*")
