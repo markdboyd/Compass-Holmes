@@ -1,6 +1,3 @@
-// Import message box styling
-@import "messages";
-
 /* 
   =========================================================================
   = DEPRECATED & NON-W3C CONTENT ELEMENTS (#a9a9a9) =======================
@@ -11,7 +8,7 @@
 /*************************************************************************
   OUTLINES / BORDERS
 *************************************************************************/
-.holmes-deprecated, .holmes-debug {
+.holmes-debug {
   applet,
   acronym,
   center,
@@ -33,11 +30,9 @@
   }  
 }
 
-body {
-  &.holmes-deprecated, &.holmes-debug {
-    &[bgproperties], &[topmargin], &[rightmargin], &[bottommargin], &[leftmargin] {
-      outline: 2px solid #a9a9a9;
-    }
+body.holmes-debug {
+  &[bgproperties], &[topmargin], &[rightmargin], &[bottommargin], &[leftmargin] {
+    outline: 2px solid #a9a9a9;
   }
 }
 
@@ -45,7 +40,7 @@ body {
   MESSAGE BOX STYLING
 *************************************************************************/
 
-.holmes-deprecated, .holmes-debug {
+.holmes-debug {
   applet:hover::after, 
   acronym:hover::after, 
   center:hover::after, 
@@ -67,13 +62,13 @@ body {
   }
 }
 
-body.holmes-deprecated, body.holmes-debug {
+body.holmes-debug {
   &[bgproperties]:hover::after, 
   &[topmargin]:hover::after, 
   &[rightmargin]:hover::after, 
   &[bottommargin]:hover::after, 
   &[leftmargin]:hover::after { 
-    @include message_box;
+    @extend .holmes_message_box;
     top: auto;
     left: auto;
     bottom: 0px;
@@ -86,7 +81,7 @@ body.holmes-deprecated, body.holmes-debug {
 	MESSAGES CONTENT
 *************************************************************************/
 
-.holmes-deprecated, .holmes-debug {
+.holmes-debug {  
   applet:hover::after, 
   acronym:hover::after, 
   center:hover::after, 
@@ -109,20 +104,12 @@ body.holmes-deprecated, body.holmes-debug {
   }  
 }
 
-body.holmes-deprecated, body.holmes-debug {
+body.holmes-debug {
   &[bgproperties]:hover::after {
     content:'Deprecated or Non-W3C body attribute bgproperties';
   }
 
   &[topmargin]:hover::after, &[rightmargin]:hover::after, &[bottommargin]:hover::after, &[leftmargin]:hover::after {
     content:'Deprecated or Non-W3C body attribute *margin';
-  }
-}
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-deprecated {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
   }
 }

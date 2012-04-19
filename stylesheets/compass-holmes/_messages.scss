@@ -22,7 +22,10 @@
   border: none;
 }
 
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+/* 
+  Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere 
+*/
+
 .holmes-debug {
   td:empty:hover::after,
   th:empty:hover::after {

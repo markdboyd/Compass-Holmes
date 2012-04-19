@@ -1,6 +1,3 @@
-// Import message box styling
-@import "messages";
-
 /* 
   ======================================================
   = ERROR LEVEL ========================================
@@ -11,7 +8,7 @@
   OUTLINES / BORDERS
 *************************************************************************/
 
-.holmes-error, .holmes-debug {  
+.holmes-debug {  
   a[href=""],
   a:not([href]),
 
@@ -46,7 +43,7 @@
   MESSAGE BOX STYLING
 *************************************************************************/
 
-.holmes-error, .holmes-debug {  
+.holmes-debug {  
   a[href=""]:hover::after,
   a:not([href]):hover::after,
 
@@ -82,7 +79,7 @@
   MESSAGES CONTENT
 *************************************************************************/
 
-.holmes-error, .holmes-debug {
+.holmes-debug {  
   a[href=""]:hover::after,
   a:not([href]):hover::after {
     content:'Missing href attribute';
@@ -115,6 +112,7 @@
   [class=""]:hover::after {
     content:'Blank class attribute';
   }
+
   [id=""]:hover::after {
     content:'Blank id attribute';
   }
@@ -123,12 +121,4 @@
   table:not([summary]):hover::after {
     content:'Missing summary attribute';
   }  
-}
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-error {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
-  }
 }

@@ -1,8 +1,7 @@
 description "An implementation of the Holmes Markup Detective for use with Compass"
 
-# Make sure you list all the project template files here in the manifest.
-stylesheet '_holmes.scss', :media => 'screen, projection'
-
+stylesheet 'screen.scss', :media => 'screen, projection'
+stylesheet '_holmes.scss'
 
 help %Q{
 Docs can be found on the github page:
