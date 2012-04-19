@@ -1,3 +1,6 @@
+// Import message box styling
+@import "messages";
+
 /* 
   =========================================================================
   = DEPRECATED & NON-W3C CONTENT ELEMENTS (#a9a9a9) =======================
@@ -59,16 +62,8 @@ body {
   *[bordercolorlight]:hover::after,
 
   table[frame]:hover::after {
-    @include message_box;
+    @extend .holmes_message_box;
     background: #a9a9a9;
-  }
-}
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-deprecated {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
   }
 }
 
@@ -121,5 +116,13 @@ body.holmes-deprecated, body.holmes-debug {
 
   &[topmargin]:hover::after, &[rightmargin]:hover::after, &[bottommargin]:hover::after, &[leftmargin]:hover::after {
     content:'Deprecated or Non-W3C body attribute *margin';
+  }
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+.holmes-deprecated {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
   }
 }

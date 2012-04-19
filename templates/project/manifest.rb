@@ -1,4 +1,4 @@
-description "an implementation of the Holmes Markup Detective for use with compass"
+description "An implementation of the Holmes Markup Detective for use with Compass"
 
 # Make sure you list all the project template files here in the manifest.
 stylesheet '_holmes.scss', :media => 'screen, projection'

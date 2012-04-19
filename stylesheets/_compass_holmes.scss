@@ -1,14 +1,3 @@
-// This is your framework's main stylesheet. Use it to import all default modules.
-
-@import "compass_holmes/messages";
 @import "compass_holmes/warn";
 @import "compass_holmes/error";
 @import "compass_holmes/deprecated";
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-debug {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
-  }
-}

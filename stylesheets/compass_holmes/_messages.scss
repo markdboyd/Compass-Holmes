@@ -4,7 +4,7 @@
   ====================================================== 
 */
 
-@mixin message_box {
+.holmes_message_box {
   border-radius: 0.5em;
   display:block;
   padding: 1em;
@@ -20,4 +20,12 @@
   z-index: 9999;  
   text-decoration: none;
   border: none;
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+.holmes-debug {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
+  }
 }

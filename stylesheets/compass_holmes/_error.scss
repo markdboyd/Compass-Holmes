@@ -1,3 +1,6 @@
+// Import message box styling
+@import "messages";
+
 /* 
   ======================================================
   = ERROR LEVEL ========================================
@@ -70,16 +73,8 @@
 
   table:not([summary]):hover::after,
   table[summary=""]:hover::after {
-    @include message_box;
+    @extend .holmes_message_box;
     background: red;
-  }
-}
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-error {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
   }
 }
 
@@ -128,4 +123,12 @@
   table:not([summary]):hover::after {
     content:'Missing summary attribute';
   }  
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+.holmes-error {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
+  }
 }

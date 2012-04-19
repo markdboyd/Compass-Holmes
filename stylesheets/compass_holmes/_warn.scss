@@ -1,3 +1,6 @@
+// Import message box styling
+@import "messages";
+
 /* 
   ======================================================
   = WARNING LEVEL ======================================
@@ -44,16 +47,8 @@
   th:empty:hover::after,
   
   [style]:hover::after {
-    @include message_box;
+    @extend .holmes_message_box;
     background: #fd0;
-  }
-}
-
-/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
-.holmes-warn {
-  td:empty:hover::after,
-  th:empty:hover::after {
-    top: 4em;
   }
 }
 
@@ -88,4 +83,12 @@
   th:empty:hover::after {
     content:'Empty element!';
   }  
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+.holmes-warn {
+  td:empty:hover::after,
+  th:empty:hover::after {
+    top: 4em;
+  }
 }
