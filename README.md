@@ -1,51 +1,72 @@
 Compass Holmes
-=================================
+==============
 
-This project is an adaptation of the [http://www.red-root.com/sandbox/holmes/](Holmes Markup Detective) created by Luke Williams. 
+This project is an adaptation of the [http://www.red-root.com/sandbox/holmes/](Holmes Markup Detective) created by Luke Williams for use with Compass. 
 
-### What's new?
+Essentially, this project acts as a markup linter that provides styles to highlight where your markup is invalid, non-standard, or deprecated. CSS based messages that explain the problems with your markup are also included.
 
-There are three main differences from the original Holmes project:
+Feel free to check out the [http://www.red-root.com/sandbox/holmes/testsuite/testsuite.html](demo) provided by the original creator of Holmes to see how it works.
 
-+	File format changed from regular CSS to SCSS
-+	Separated CSS rules into separate SCSS partials according to what "warning level" you want to display
-+ Added extra body classes in addition to "holmes-debug" to enable granular control of error display. The new classes are:
- + "holmes-warn" - Shows warning-level issues which may be encouraged for accessibility but are not required
- + "holmes-error" - Shows only issues which invalidate your markup and are required
- + "holmes-deprecated" - Shows only deprecated elements and styles
+What's new?
+===========
 
-As a result of the nesting of CSS rules provided by SCSS and the use of partials, users can now control exactly what level of error from Holmes that they want to inject into their stylesheets. Also, with the addition of more specific Holmes error level classes, regardless of what rules from Holmes are present in your styles, you can choose which error levels to show by adding and/or stacking error level classes on the body tag.
+Apart from porting the syntax of Holmes from CSS to SCSS, the biggest change is the separation of the different "error levels" into SASS partials. The benefit of this change is that you can now control which "error level" you want to see from Holmes simply by choosing which partials to import into your SASS stylesheets, reducing compiled CSS size and enabling you to focus on issues with your markup one "error level" at a time. Instructions on how to implement different "error levels" are provided in the [How to Use](How to Use) section of this document.
 
-### How to use
+Install
+=======
 
-__NOTE: Make sure the holmes folder exists in the same directory as your other SASS/SCSS files.__
+Compas Holmes is provided as a Ruby gem, so to install, simply run the following command from the command line:
 
-The partials for various error levels are named according to error level and the body class suffix that they require. For posterity though, here are the @import rules and body classes you need to apply in order to display the various warning levels offered by this project:
+	(sudo) gem install compass-holmes
 
-#### Warning level
+Create a Compass project with Compass Holmes
+============================================
 
-	@import "holmes/warn";
+To create a compass project with Compass Holmes, run this command from the command line:
 
-Apply body class 'holmes-warn'
+  compass create <project name> -r compass-holmes -u compass-holmes
 
-#### Error level
+How to use
+==========
 
-	@import "holmes/error";
+### Add the styles
 
-Apply body class 'holmes-error'
+Add this line to the top of your Compass configuration file:
 
-#### Deprecated level
+	require "compass-holmes"
 
-	@import "holmes/deprecated";
+Import the styles from Holmes you want into your SASS stylesheets. To include all of the styles provided by Holmes, use:
 
-Apply body class 'holmes-deprecated'
+	@import "compass-holmes";
 
-#### All error levels
+However, if you want to target specific "error level(s)", such as only invalid markup, or only invalid and deprecated markup, you have to do two things. First, import the message styling for Holmes:
 
-	@import "holmes/debug";
+	@import "compass-holmes/messages";
 
-Apply body class 'holmes-debug'
+By itself, that import does nothing but provide message styling for Holmes, but for the sake of an optimal modular structure and compiled output cleanliness, it needs to be imported separately. The second thing you have to do is just add the imports for the "error levels" you're interested in. Those imports are:
 
-### Acknowledgments
+Invalid markup styles
+
+	@import "compass-holmes/error";
+
+Non-standard markup styles
+
+	@import "compass-holmes/warn";
+
+Deprecated markup styles
+
+	@import "compass-holmes/deprecated";
+
+### Add the body class
+
+__IMPORTANT: All of the Holmes styles are only triggered by adding a body class of "holmes-debug"__, so if you've included the styles but aren't seeing any of them appear, that is likely the reason. One easy way of adding the body class is to use JS/jQuery. Or, if you're using Drupal, you can investigate using [http://api.drupal.org/api/drupal/includes!theme.inc/function/template_preprocess_page/](template_preprocess_page) to add this body class.
+
+A word of caution
+=================
+
+The CSS provided by Holmes relies on a lot of fancy selectors, especially attribute selectors and pseudo-classes. As such, these styles are unlikely to work in outdated browsers such as Old IE, so make sure to use Holmes in a modern browser.
+
+Acknowledgments
+===============
 
 Adapted from [https://github.com/redroot/holmes](Holmes)
