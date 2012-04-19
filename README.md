@@ -26,7 +26,7 @@ To create a compass project with Compass Holmes, run this command from the comma
 
   compass create <project name> -r compass-holmes -u compass-holmes
 
-[How to use]
+## How to use
 
 __NOTE: Compass Holmes is written in the SCSS syntax, so all of the instructions for how to use it in your stylesheets use the SCSS syntax as well.__ If you want an introduction to regular SASS syntax or how to use it, please visit the [official SASS syntax documentation](http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html).
 
